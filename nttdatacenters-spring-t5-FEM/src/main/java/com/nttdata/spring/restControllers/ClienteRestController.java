@@ -42,7 +42,7 @@ public class ClienteRestController {
 	 * @param cliente El nuevo cliente a agregar
 	 */
 	@PostMapping
-	public void addClient(@RequestBody Cliente cliente) {
+	public void addCliente(@RequestBody Cliente cliente) {
 		mapa.put(cliente.getId(), cliente);
 	}
 	
@@ -63,7 +63,7 @@ public class ClienteRestController {
 	 * @return Cliente El cliente con esa ID
 	 */
 	@RequestMapping(path = "/cliente", method = RequestMethod.GET, consumes = "application/json")
-	public Cliente searchById(@RequestBody Long id) {
+	public Cliente findById(@RequestBody Long id) {
 		return mapa.get(id);
 	}
 
@@ -73,7 +73,7 @@ public class ClienteRestController {
 	 * @param id El ID del cliente a eliminar
 	 */
 	@DeleteMapping(value = "/{id}")
-	public void deleteClient(final @PathVariable Long id) {
+	public void deleteCliente(final @PathVariable Long id) {
 		mapa.remove(id);
 	}
 
